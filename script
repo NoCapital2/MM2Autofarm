@@ -159,11 +159,11 @@ OpenAutofarmGui = GuiLibrary.TextButton({
 	Size = UDim2.new(0.104, 0, 0.052, 0),
 	["Font"] = Enum.Font.FredokaOne,
 	Text = "Open autofarm gui",
-	ZIndex = 999,
+	ZIndex = 4,
 	TextColor3 = Color3.new(1, 1, 1),
 	TextScaled = true,
 	Visible = false,
-	Parent = CoreGui
+	Parent = MainGui
 })
 
 --from infinity yield lol
@@ -228,7 +228,7 @@ end
 ImproveFPSenabled = false
 function ImproveFPSButtonC()
 	if not ImproveFPSenabled then
-		D3RenderingDisabled = true
+		ImproveFPSenabled = true
 		for _, player in pairs(Players:GetChildren()) do
 			if player.Character then
 				for _, part in pairs(player.Character:GetChildren()) do
@@ -273,12 +273,14 @@ function ChangeBeachballType(cointype)
 end
 
 function CloseGuiCheck()
-	if MainFrame.Visible == false then
-		OpenAutofarmGui.Visible = false
-		MainFrame.Visible = true
-	else
+	if MainFrame.Visible == true then
+		OpenAutofarmGui.Visible = true
 		MainFrame.Visible = false
-		OpenAutofarmGui = true
+		MainFrameBorder.Visible = false
+	else
+		MainFrame.Visible = true
+		MainFrameBorder.Visible = true
+		OpenAutofarmGui.Visible = false
 	end
 end
 
@@ -328,7 +330,7 @@ spawn(function()
 			PcallTP(bringpose)
 			for _, v in pairs(returncoincontaier():GetChildren()) do
 				if v:GetAttribute("CoinID") == CurrentCoinType and v:FindFirstChild("TouchInterest") then
-					for i = 1,9 do
+					for i = 1,7 do
 						PcallTP(v.CFrame)
 						task.wait(0.03)
 					end
@@ -355,7 +357,7 @@ for _, player1 in pairs(Players:GetChildren()) do
 	player1.CharacterAdded:Connect(function(char)
 		task.wait(0.5) --just because
 		if ImproveFPSenabled then
-			for _, part in pairs(player1.Character:GetChildren()) do
+			for _, part in pairs(char:GetChildren()) do
 				if part:IsA("Accessory") then
 					part:Destroy()
 				end
@@ -371,7 +373,7 @@ Players.PlayerAdded:Connect(function(player1)
 	player1.CharacterAdded:Connect(function(char)
 		task.wait(0.5) --just because
 		if ImproveFPSenabled then
-			for _, part in pairs(player1.Character:GetChildren()) do
+			for _, part in pairs(char:GetChildren()) do
 				if part:IsA("Accessory") then
 					part:Destroy()
 				end
