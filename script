@@ -328,7 +328,7 @@ spawn(function()
 			PcallTP(bringpose)
 			for _, v in pairs(returncoincontaier():GetChildren()) do
 				if v:GetAttribute("CoinID") == CurrentCoinType and v:FindFirstChild("TouchInterest") then
-					for i = 1,7 do
+					for i = 1,9 do
 						PcallTP(v.CFrame)
 						task.wait(0.03)
 					end
