@@ -8,6 +8,8 @@ else
 	_G.AutofarmSettings = {}
 	SettingsAutofarm = {AntiAfk = true, DelayFarm = 3}
 end
+if _G.AutoFarmMM2IsLoaded then return end
+_G.AutoFarmMM2IsLoaded = true
 Player = game.Players.LocalPlayer
 Players = game.Players
 CoreGui = game.CoreGui
