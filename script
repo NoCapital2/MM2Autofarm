@@ -248,7 +248,7 @@ function ImproveFPSButtonC()
 	end
 end
 
-CoinTypes = {"BeachBall", "Coin"}
+CoinTypes = {"Candy", "Coin"}
 CurrentCoinType = "BeachBall"
 PositionOfCoinType = 1
 function ChangeBeachballType(cointype)
@@ -297,9 +297,9 @@ safepart.CFrame = bringpose * CFrame.new(0, -0.9, 0)
 safepart.Parent = workspace
 
 function returncoincontaier()
-	if workspace:FindFirstChild("Normal") then
-		if workspace.Normal:FindFirstChild("CoinContainer") then
-			return workspace.Normal:FindFirstChild("CoinContainer")
+	for _, v in workspace:GetChildren() do
+		if v:FindFirstChild("CoinContainer") and v:IsA("Model") then
+			return v:FindFirstChild("CoinContainer")
 		end
 	end
 	return false
@@ -407,6 +407,7 @@ for Configname, Configvalue in pairs(SettingsAutofarm) do
 	elseif Configname == "Disable3DRendering" and Configvalue == true then
 		Disabl3dRender()
 	elseif Configname == "CoinType" and Configvalue then
+		if Configvalue == "Beachball" then Configvalue = "Candy" end
 		ChangeBeachballType(Configvalue)
 	elseif Configname == "ResetWhenFullBag" and Configvalue == true then
 		ResetWhenFullBag = true
