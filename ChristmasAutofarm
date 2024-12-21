@@ -333,31 +333,13 @@ spawn(function()
 					wait()
 				end
 				strg:Cancel()
+				wait(0.0001)
 			end
 		else
-			wait(1)
+			wait(0.3)
 		end
 	end
 end)
-
---[[spawn(function()
-	while true do
-		if AutofarmStarted and AutofarmIN and Player.Character and returncoincontaier() then
-			PcallTP(bringpose)
-			for _, v in pairs(returncoincontaier():GetChildren()) do
-				if v:GetAttribute("CoinID") == CurrentCoinType and v:FindFirstChild("TouchInterest") then
-					for i = 1,7 do
-						PcallTP(v.CFrame)
-						task.wait(0.03)
-					end
-					break
-				end
-			end
-			PcallTP(bringpose)
-		end
-		task.wait(AutofarmDelay)
-	end
-end)]]--
 
 RoundStartEvent.OnClientEvent:Connect(function()
 	AutofarmIN = true
