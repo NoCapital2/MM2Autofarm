@@ -338,6 +338,7 @@ spawn(function()
 		else
 			wait(0.3)
 		end
+		wait(0.0001)
 	end
 end)
 
