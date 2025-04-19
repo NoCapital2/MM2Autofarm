@@ -9,9 +9,9 @@ else
 	SettingsAutofarm = {}
 end
 if _G.AutoFarmMM2IsLoaded then
-	if MainFrame.Visible == false then
-		MainFrame.Visible = true
-		MainFrameBorder.Visible = true
+	if _G.FramesAFGlobal[1].Visible == false then
+		_G.FramesAFGlobal[1].Visible = true
+		_G.FramesAFGlobal[2].Visible = true
 	end
 	return
 end
@@ -52,6 +52,7 @@ MainFrameBorder = GuiLibrary.Frame({
 	Parent = MainGui,
 	attach = MainFrame
 })
+_G.FramesAFGlobal = {MainFrame, MainFrameBorder}
 MainFrameUiCorner = GuiLibrary.UICorner({
 	Name = RandomNameFunction(),
 	CornerRadius = UDim.new(0, 12),
