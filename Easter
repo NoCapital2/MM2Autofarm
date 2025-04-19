@@ -8,7 +8,13 @@ else
 	_G.AutofarmSettings1 = {}
 	SettingsAutofarm = {}
 end
-if _G.AutoFarmMM2IsLoaded then return end
+if _G.AutoFarmMM2IsLoaded then
+	if MainFrame.Visible == false then
+		MainFrame.Visible = true
+		MainFrameBorder.Visible = true
+	end
+	return
+end
 _G.AutoFarmMM2IsLoaded = true
 Player = game.Players.LocalPlayer
 Players = game.Players
