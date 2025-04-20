@@ -83,7 +83,7 @@ NameTextLabel = GuiLibrary.TextLabel({
 	["Font"] = Enum.Font.Highway,
 	Text = "Egg autofarm",
 	ZIndex = 2,
-	TextColor3 = Color3.new(1, 1, 1),
+	TextColor3 = Color3.new(0, 0, 0),
 	TextScaled = true,
 	Parent = MainFrame
 })
@@ -95,7 +95,7 @@ AutofarmTextLabel = GuiLibrary.TextLabel({
 	["Font"] = Enum.Font.Highway,
 	Text = "Egg autofarm",
 	ZIndex = 2,
-	TextColor3 = Color3.new(1, 1, 1),
+	TextColor3 = Color3.new(0, 0, 0),
 	TextScaled = true,
 	Parent = MainFrame
 })
@@ -107,7 +107,7 @@ RareEggsTextLabel = GuiLibrary.TextLabel({
 	["Font"] = Enum.Font.Highway,
 	Text = "Auto rare eggs",
 	ZIndex = 2,
-	TextColor3 = Color3.new(1, 1, 1),
+	TextColor3 = Color3.new(0, 0, 0),
 	TextScaled = true,
 	Parent = MainFrame
 })
@@ -119,7 +119,7 @@ Disable3DRenderTextLabel = GuiLibrary.TextLabel({
 	["Font"] = Enum.Font.Highway,
 	Text = "Disable 3D render",
 	ZIndex = 2,
-	TextColor3 = Color3.new(1, 1, 1),
+	TextColor3 = Color3.new(0, 0, 0),
 	TextScaled = true,
 	Parent = MainFrame
 })
@@ -175,7 +175,7 @@ Disable3DRenderButton = GuiLibrary.TextButton({
 Disable3DRenderButtonUiCorner = GuiLibrary.UICorner({
 	Name = RandomNameFunction(),
 	CornerRadius = UDim.new(0, 12),
-	Parent = AutoRareEggsButton
+	Parent = Disable3DRenderButton
 })
 
 --Autofarm scripts must have anti afk
@@ -360,11 +360,11 @@ function Disabl3dRender()
 	if not D3RenderingDisabled then
 		D3RenderingDisabled = true
 		RunService:Set3dRenderingEnabled(false)
-		Disable3DRenderButton.BackgroundColor3 = Color3.new(1, 0, 0)
+		Disable3DRenderButton.BackgroundColor3 = Color3.new(0, 1, 0)
 	else
 		D3RenderingDisabled = false
 		RunService:Set3dRenderingEnabled(true)
-		Disable3DRenderButton.BackgroundColor3 = Color3.new(0, 1, 0)
+		Disable3DRenderButton.BackgroundColor3 = Color3.new(1, 0, 0)
 	end
 end
 
