@@ -252,7 +252,7 @@ spawn(function()
 			if FindNearestCoin(returncoincontaier())[1] ~= nil then
 				local dds = FindNearestCoin(returncoincontaier())
 				if dds[2] > 175 then PcallTP(dds[1].CFrame); continue end
-				local strg = TweenService:Create(Player.Character.HumanoidRootPart, TweenInfo.new(dds[2] / 25, Enum.EasingStyle.Linear), {CFrame = CFrame.new(dds[1].Position)})
+				local strg = TweenService:Create(Player.Character.HumanoidRootPart, TweenInfo.new(dds[2] / 21, Enum.EasingStyle.Linear), {CFrame = CFrame.new(dds[1].Position)})
 				strg:Play()
 				autofarmstopevent.Event:Connect(function()
 					strg:Cancel()
